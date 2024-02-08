@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find My Friends</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find My Friends</h1>
+    <div id="map"></div>
+
+    <script>
+        function initMap() {
+            // Initialize the map
+            const map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 0, lng: 0},
+                zoom: 8
+            });
+
+            // Fetch and display friends' locations
+            fetch('/get_friends_locations?user_id=<user_id>') // Replace <user_id> with the actual user's ID
+                .then(response => response.json())
+                .then(friendsLocations => {
+                    for (const [userId, location] of Object.entries(friendsLocations)) {
+                        const marker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            title: userId
+                        });
+                    }
+                });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>
+
