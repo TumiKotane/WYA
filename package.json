@@ -1,0 +1,25 @@
+{
+  "name": "WhereYouAt",
+  "version": "1.0.0",
+  "description": "Friend Locator",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TumiKotane/WYA.git"
+  },
+  "author": "Boitumelo Kotane",
+  "license": ""
+  "bugs": {
+ 
+},
+   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  }
+}
